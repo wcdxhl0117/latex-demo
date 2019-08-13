@@ -12,19 +12,26 @@
         MathJax.Hub.Config({
           tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
         });
-        </script>
+    </script>
 </head>
 
 <body>
     当 $a \ne 0$, 接着 \(ax^2 + bx + c = 0\) 然后$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$
     <p>模拟点击填空题进入公式编辑的逻辑</p>
-    <div id="toEdit" style="height: 50px;line-height: 50px;text-align:center;width: 200px;border:1px solid #ccc;"
-        onclick="changeText(123)">填空题的空</div>
+    <div class="toEdit0" style="height: 50px;line-height: 50px;text-align:center;width: 200px;border:1px solid #ccc;"
+        onclick="changeText(123, 0)">填空题的空</div>
 
     <script>
-        // 与native交互
-        function changeText(latex) {
-            alert(latex)
+        /* 
+            逻辑：点击填空题空，与Native交互，将填空答案和空的标志（哪一个空index）传入, Native换起公式键盘，将latex传入公式键盘输入框，
+         输入结束，Native再降输入结果及index传入本页面，页面将结果放进对应的空 
+        */
+        function changeText(latex, idx) {
+            alert(idx)
+        }
+        // editRes('hahah', 0)
+        function editRes(latex, idx) {
+            document.querySelectorAll('.toEdit0')[idx].innerHTML = '123'
         }
     </script>
 </body>
