@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>MathQuill-basic Demo</title>
+  <link href="./src/mathquill.2.css" rel="stylesheet">
+  <link rel="stylesheet" href="./math-input.css">
+  <script type="text/javascript">
+    document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + "px";
+    window.addEventListener("resize", function () {
+      document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + "px";
+    }, false);
+  </script>
+</head>
+<style>
+  #basic {
+    padding: 0.2rem 0;
+    width: 100%;
+    font-size: 0.36rem;
+    overflow-x: auto;
+    border: none;
+  }
+  
+</style>
+
+<body>
+  <div id="body">
+    <p style="font-size: 0.26rem">mathquill优点是快，缺点是公式支持不全，个别公式能通过修改源码解决（新版公式就改过源码），但不符合目前需求原因在于，它主要还是用于解决公式输入问题的，如果将一段latex加中文让mathquill渲染，它不会换行，同时你还需要处理焦点问题等</p>
+    <p>
+      <span id="basic"></span>
+    </p>
+    <p>
+      <textarea id="basic-latex"></textarea>
+    </p>
+    <!-- <p id="add">Add LaTeX encoding</p> -->
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
+  <!-- <script src="https://cdn.bootcss.com/mathquill/0.10.1/mathquill.min.js"></script> -->
+  <script src="./src/mathquill.2.js"></script>
+  <!--  ASCIImath to Latex -->
+  <script src="./acc.js"></script>
+  <script type="text/javascript">
+    // setTimeout(function() {
+    //   $("#basic textarea").eq(0).focus()
+    // },20)
+    
+    
+    MQ = MathQuill.getInterface(MathQuill.getInterface.MAX);
+    var mq = MQ.MathField($('#basic')[0], {
+      autoSubscriptNumerals: true,
+      handlers: {
+        edit: function () {
+          if (!latex.is(':focus')) latex.val(mq.latex());
+        }
+      }
+    });
+    // \frac{ }{ }
+    // 聚焦
+    mq.focus()
+
+    // 写入字符串到光标位置
+    setTimeout(function() {
+      mq.write('(\\frac12y)^4\\div (-\\frac12y)')
+    }, 100)
+    
+    var latex = $('#basic-latex').bind('keydown keypress', function () {
+      var prev = latex.val();
+      setTimeout(function () {
+        var now = latex.val();
+        if (now !== prev) mq.latex(now);
+      });
+    });
+    latex.val(mq.latex());
+  </script>
+</body>
+
+</html>

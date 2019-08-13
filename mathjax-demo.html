@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+        </script>
+</head>
+
+<body>
+    当 $a \ne 0$, 接着 \(ax^2 + bx + c = 0\) 然后$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$
+    <p>模拟点击填空题进入公式编辑的逻辑</p>
+    <div id="toEdit" style="height: 50px;line-height: 50px;text-align:center;width: 200px;border:1px solid #ccc;"
+        onclick="changeText(123)">填空题的空</div>
+
+    <script>
+        // 与native交互
+        function changeText(latex) {
+            alert(latex)
+        }
+    </script>
+</body>
+
+</html>

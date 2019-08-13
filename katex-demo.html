@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="q"></div>
+
+      katex渲染公式很简单，参照文档做如下demo；不过katex问题是不能渲染中文，所以不符合需求
+    <ul>
+      <li id="a1"></li>
+      <li id="a2"></li>
+      <li id="a3"></li>
+      <li id="a4"></li>
+    </ul>
+    <script>
+      var q = katex.renderToString("8x^2-20x");
+      document.getElementById('q').innerHTML =  q;
+
+      var a1 = katex.renderToString("4x(2x-5)");
+      document.getElementById('a1').innerHTML =  a1;
+      var a2 = katex.renderToString("8x^2");
+      document.getElementById('a2').innerHTML =  a2;
+      var a3 = katex.renderToString("-20x");
+      document.getElementById('a3').innerHTML =  a3;
+      var a4 = katex.renderToString("x^2-0x");
+      document.getElementById('a4').innerHTML =  a4;
+    </script>
+  </body>
+</html>
