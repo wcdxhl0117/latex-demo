@@ -1,4 +1,4 @@
-###关于公司所有vue项目配置说明：
+### 关于公司所有vue项目配置说明：
  >  公司vue项目写法大体上符合官方推荐写法，也有一些因为项目进度、人员变动等原因有一些风格上的不统一。
 1.开发时的全局配置在main.js，如flexable.js等
 2.开发时环境切换：config ==> test下，改变api代理的域名即可切换至不同环境
@@ -14,7 +14,7 @@
   #### 1.app内嵌页面 -- clent
    > 此项目页面大多数为app端内嵌页面，其中也有因为项目管理原因，放在其中的一些活动页面，项目结构如下：![image.png](https://upload-images.jianshu.io/upload_images/4013462-cff05dd93a5f5d1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)     里面包含了一些活动相关的页面，如下：       ![image.png](https://upload-images.jianshu.io/upload_images/4013462-29922dc8075f106b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#####开发流程：
+##### 开发流程：
  > 1.gitlab拉取代码
     2.按需修改业务
     3.提交代码至gitlab
@@ -25,7 +25,7 @@
  ![image.png](https://upload-images.jianshu.io/upload_images/4013462-2519898215e15d1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 项目业务修改的话，参照上面的流程。
 
-###老移动端项目 yoomath-m
+### 老移动端项目 yoomath-m
  > 老的移动端项目为jquery项目，写法也很基础，不许要过多阐述。下面为项目结构：
  ![image.png](https://upload-images.jianshu.io/upload_images/4013462-7d6373b5ded13b7a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 这个项目平时涉及的改动不多，需求需要的话在看代码，很简单的，就不详细阐述了
@@ -35,7 +35,7 @@
 ![image.png](https://upload-images.jianshu.io/upload_images/4013462-77688ffc7295b10c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 我改过这个项目是之前做小程序时的一些绑定处理，或者公众号的微信支付之类的操作，我想这个项目如果不是需要改动公众号或者小程序，不会动。
 
-###小悠快批  yoocorrect
+### 小悠快批  yoocorrect
 > 小悠快批其实并没有没有用到vuex做状态管理，核心功能批改逻辑也被Native端重构了，后期迭代可能会涉及到相关修改，，所以列出主要的业务代码结构，如下图：
 ![image.png](https://upload-images.jianshu.io/upload_images/4013462-88d3b7c212383ca6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 小悠快批采取页面书写方式为就近维护，及相关页面的组件和图片就放在同一文件夹，这样修改容易查找和同一管理
@@ -45,11 +45,11 @@
 ![`211MH[V@ZE1]HU3SF5P4%A.png](https://upload-images.jianshu.io/upload_images/4013462-337eff2b8a110e53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 新pc端就是vue的基本套路，不难。
 
-###图片标注 tag-image
+### 图片标注 tag-image
 > 图片标注功能为vue项目，不过最后打包结果需要嵌套至管控台项目的tag文件夹
 此项目代码目录结构简单，就不做过多阐述。
 
-###家长端小程序 wechat-app
+### 家长端小程序 wechat-app
 1.公司小程序开发采用了腾讯内部员工开发的技术框架wepy，本地运行项目步骤如下：
 首先gitLab拿去代码，进入根目录npm install，然后npm run dev生成dist文件，在开发者工具中就打开小程序项目调试，将项目目录选择dist，即可实时看到调试效果
 2.项目目录介绍：
@@ -71,6 +71,6 @@
 ### 渠道端 web-nqd
 > 渠道销售端为外包做的项目，使用的依然是vue，动态路由的方式开发，用了ele组件库，不做具体阐述，有迭代需求的话，直接找对应位置修改即可，代码难度不大。
 
-###公式键盘
+### 公式键盘
 > 公式键盘为二次开发项目，使用的技术栈为react + react-router + redux + RN组件，项目具体文档在项目中有具体阐述（REDEME）。
 项目最后是将静态文件放入native，内嵌到webview（具体文件请native配合查找），需要注意：因为ios和安卓的不同，他们index.html处理并不一样
