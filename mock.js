@@ -4,6 +4,6 @@ var questions = [
             { content: " ;<ux-mth>\\frac{ 1}{110 }</ux-mth> ;" },
             { content: " ;<ux-mth>\\frac{1 }{n(n+1) }</ux-mth> ;" }
         ],
-        content: "观察下列一组有规律的数&nbsp;: <ux-mth>\\frac{1 }{2 }</ux-mth> ;， ;<ux-mth>\\frac{1 }{6}</ux-mth> ;， ;<ux-mth>\\frac{1 }{12 }</ux-mth> ;， ;<ux-mth>\\frac{1 }{ 20}</ux-mth>, ; <ux-mth>\\frac{1 }{30}</ux-mth> ;， ;<ux-mth>\\frac{1 }{42 }</ux-mth> ;，…，根据其规律可知： ;<ux-mth>(1)</ux-mth> ;第  ;<ux-mth>10</ux-mth> ;个数是 ; ;<ux-mth>(2)</ux-mth> ;第 ;<ux-mth>n</ux-mth> ;个数是 ;"
+        content: "<span>1、如图，在直角梯形ABCD中，AB∥CD，AD⊥DC，AB=BC，且AE⊥BC．&nbsp;（1）求证：AD=AE；&nbsp;（2）若AD=8，DC=4，求AB的长．</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>"
     }
 ]

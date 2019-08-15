@@ -53,24 +53,8 @@
 
   <script src="./mock.js"></script>
   <script>
-    /* 
-      后期还需要考虑很多细节问题，如公式中是否还有其他特殊符号，如果有就想办法替换即可
-    */
-
-    // 题干
-    let aaa = questions[0].content.split('<ux-mth>')
-    let bbb = []
-    aaa.forEach(ele => {
-      let c = ele.split('</ux-mth>')
-      bbb.push(...c)
-    });
-
-    let tg_str = ''
-    bbb.forEach((item, i) => {
-      tg_str += item
-    })
+    // 全局标记渲染，最终方法
     console.log(parseTexMathContent(questions[0].content))
-    // let latex_str = katex.renderToString(tg_str, {});
     document.getElementById('tigan').innerHTML = parseTexMathContent(questions[0].content)
 
 
