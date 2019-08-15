@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/KaTeX/0.10.2/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.bootcss.com/KaTeX/0.10.2/katex.min.js"></script>
+    <link href="https://cdn.bootcss.com/KaTeX/0.10.2/katex.min.css" rel="stylesheet">
+
+</head>
+<style>
+.katex-display, .katex, .katex-mathml, .base{
+    display: inline;
+}
+
+</style>
+
+<body>
+    <div id="a"></div>
+
+    <script>
+        let str = "8x^2-20x在十多个8x^2-20x在十多个8x^2-20x8x^2-20x在十多个8x^2-20x在十多个8x^2-20x8x^2-20x在十多个8x^2-20x在十多个8x^2-20x"
+        // let str = "\\frac{1}{1}nbsp;"
+        var q = katex.renderToString(str, {
+            throwOnError: false,
+            displayMode: true
+        });
+        document.getElementById('a').innerHTML = q;
+    </script>
+</body>
+
+</html>

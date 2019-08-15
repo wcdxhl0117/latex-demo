@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <script src="https://cdn.bootcss.com/KaTeX/0.10.2/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.bootcss.com/KaTeX/0.10.2/katex.min.js"></script>
+  <link href="https://cdn.bootcss.com/KaTeX/0.10.2/katex.min.css" rel="stylesheet">
+
+</head>
+<style>
+  body {
+    font-size: 20px;
+  }
+
+  .katex-display,
+  .katex,
+  .katex-mathml,
+  .base {
+    display: inline !important;
+  }
+
+  #aa {
+    white-space: normal
+  }
+
+  .mord {
+    word-wrap: break-word !important;
+    word-break: break-all !important;
+    white-space: normal !important;
+  }
+</style>
+
+<body>
+  <div id="aa">
+    <span id="">222222</span>
+    <span id="q"></span>
+    <span>111111</span>
+  </div>
+  题干：
+  <div id="tigan">
+  </div>
+
+  <script src="./mock.js"></script>
+  <script>
+    // 题干
+    let aaa = questions[0].content.split('<ux-mth>')
+    let bbb = []
+    aaa.forEach(ele => {
+      let c = ele.split('</ux-mth>')
+      bbb.push(...c)
+    });
+    // console.log(bbb)
+
+
+    // let tg_str = ''
+    // bbb.forEach((item, i) => {
+    //   tg_str += '<span id="l'+i+'">'+item+'</span>'
+    // })
+    // // console.log(tg_str)
+    // document.getElementById('tigan').innerHTML = tg_str
+
+
+    // for (let i=0;i<bbb.length;i++) {
+    //   let str = katex.renderToString(bbb[i], {
+    //     throwOnError: false,
+    //     displayMode: true
+    //   });
+    //   document.getElementById('l'+i).innerHTML = str
+    // }
+
+
+
+
+    let tg_str = ''
+    bbb.forEach((item, i) => {
+      tg_str += item
+    })
+    let latex_str = katex.renderToString(tg_str, {
+      throwOnError: false,
+      displayMode: true
+    });
+    document.getElementById('tigan').innerHTML = latex_str
+
+
+
+
+
+
+
+    let str = "8x^2-20x在十多个8x^2-20x在十多个8x^2-20x"
+    // let str = "\\frac{1}{1}nbsp;"
+    var q = katex.renderToString(str, {
+      throwOnError: false,
+      displayMode: true
+    });
+    document.getElementById('q').innerHTML = q;
+
+
+
+
+
+    // 替换中文的方法
+    function repTxt(content) {
+      // ||^[nbsp;]+
+      let con = content.replace(/([^\u0000-\u00FF]+)/g, function ($) { return '\\text{' + $ + '}'; })
+      return con
+    }
+
+    // 转换一
+    function parseTexMathContent(content) {
+      var txt = content.replace(
+        /<ux-blank sequence=\d+><\/ux-blank>/g,
+        '__________'
+      )
+      txt = txt.replace(
+        /<img[^>]+class='insert_fill_txt'[\s\S]*?>/g,
+        '__________'
+      )
+      txt = txt.replace(/<ux-mth>([^']+?)<\/ux-mth>/g, function (
+        match,
+        capture
+      ) {
+        capture = capture.replace(/</g, '&lt;')
+        capture = capture.replace(/>/g, '&gt;')
+        capture = capture.replace(/\\$/gi, '')
+        capture = capture.replace(/\\upsi lon$/gi, '\\upsilon')
+        return '$' + capture + '$'
+      })
+      txt = txt.replace(/<table[\s\S]*?>([\s\S]*?)<\/table>/g, function (
+        match,
+        capture
+      ) {
+        return (
+          '<table class="table-bordered" style="width:100%">' +
+          capture.replace(/\n/g, '') +
+          '</table>'
+        )
+      })
+      txt = txt.replace(/\n/g, '<br/>')
+      return txt
+    }
+
+
+  </script>
+</body>
+
+</html>

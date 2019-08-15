@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/contrib/auto-render.min.js"></script>
+
+</head>
+<style>
+  body {
+    font-size: 20px;
+  }
+  
+</style>
+
+<body>
+  <div id="aa">
+    <span id="">222222</span>
+    <span id="q"></span>
+    <span>111111</span>
+  </div>
+  </div>
+
+  <script>
+    let str = "8x^2-20x在十多个8x^2-20x在十多个8x^2-20x"
+    // let str = "\\frac{1}{1}nbsp;"
+    var q = katex.renderToString(repTxt(str), {
+      throwOnError: false,
+      displayMode: true
+    });
+    document.getElementById('q').innerHTML = q;
+
+
+    // 替换中文的方法
+    function repTxt(content) {
+      // ||^[nbsp;]+
+      let con = content.replace(/([^\u0000-\u00FF]+)/g, function ($) { return '\\text{' + $ + '}'; })
+      return con
+    }
+
+    // 转换一
+    function parseTexMathContent(content) {
+      var txt = content.replace(
+        /<ux-blank sequence=\d+><\/ux-blank>/g,
+        '__________'
+      )
+      txt = txt.replace(
+        /<img[^>]+class='insert_fill_txt'[\s\S]*?>/g,
+        '__________'
+      )
+      txt = txt.replace(/<ux-mth>([^']+?)<\/ux-mth>/g, function (
+        match,
+        capture
+      ) {
+        capture = capture.replace(/</g, '&lt;')
+        capture = capture.replace(/>/g, '&gt;')
+        capture = capture.replace(/\\$/gi, '')
+        capture = capture.replace(/\\upsi lon$/gi, '\\upsilon')
+        return '$' + capture + '$'
+      })
+      txt = txt.replace(/<table[\s\S]*?>([\s\S]*?)<\/table>/g, function (
+        match,
+        capture
+      ) {
+        return (
+          '<table class="table-bordered" style="width:100%">' +
+          capture.replace(/\n/g, '') +
+          '</table>'
+        )
+      })
+      txt = txt.replace(/\n/g, '<br/>')
+      return txt
+    }
+
+  </script>
+</body>
+
+</html>

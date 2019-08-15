@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <script src="https://cdn.bootcss.com/KaTeX/0.10.2/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.bootcss.com/KaTeX/0.10.2/katex.min.js"></script>
+  <link href="https://cdn.bootcss.com/KaTeX/0.10.2/katex.min.css" rel="stylesheet">
+
+</head>
+<style>
+  body {
+    font-size: 20px;
+  }
+
+  .katex-display,
+  .katex,
+  .katex-mathml,
+  .base {
+    display: inline !important;
+  }
+
+  #aa {
+    white-space: normal
+  }
+
+  .mord {
+    word-wrap: break-word !important;
+    word-break: break-all !important;
+    white-space: normal !important;
+  }
+</style>
+
+<body>
+  题干：
+  <div id="tigan">
+  </div>
+
+  <script src="./mock.js"></script>
+  <script>
+    /* 
+      后期还需要考虑很多细节问题，如公式中是否还有其他特殊符号，如果有就想办法替换即可
+    */
+
+    // 题干
+    let aaa = questions[0].content.split('<ux-mth>')
+    let bbb = []
+    aaa.forEach(ele => {
+      let c = ele.split('</ux-mth>')
+      bbb.push(...c)
+    });
+    
+    let tg_str = ''
+    bbb.forEach((item, i) => {
+      tg_str += item
+    })
+    let latex_str = katex.renderToString(tg_str, {});
+    document.getElementById('tigan').innerHTML = latex_str
+
+  </script>
+</body>
+
+</html>
