@@ -11,7 +11,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, {
-          displayMode: true
+          // displayMode: true
         });
     });
 </script>
@@ -49,15 +49,18 @@
   题干：
   <div id="tigan">
   </div>
-
+  <br />
+  答题：
+    第一空： <p ></p>
+  
   <script src="./mock.js"></script>
   <script>
     // 全局标记渲染，最终方法
-    console.log(parseTexMathContent(questions[0].content))
-    document.getElementById('tigan').innerHTML = parseTexMathContent(questions[0].content)
+    console.log(katexParse(questions[0].content))
+    document.getElementById('tigan').innerHTML = katexParse(questions[0].content)
 
 
-    function parseTexMathContent(content) {
+    function katexParse(content) {
       var txt = content.replace(
         /<ux-blank sequence=\d+><\/ux-blank>/g,
         '__________'
@@ -90,6 +93,29 @@
       return txt
     }
 
+
+    // 题干
+    // let aaa = questions[0].content.split('<ux-mth>')
+    // let bbb = []
+    // aaa.forEach(ele => {
+    //   let c = ele.split('</ux-mth>')
+    //   bbb.push(...c)
+    // });
+    
+    // let tg_str = ''
+    // bbb.forEach((item, i) => {
+    //   tg_str += item
+    // })
+    // let latex_str = katex.renderToString(tg_str, {});
+    // document.getElementById('tigan').innerHTML = latex_str
+
+
+    // 替换中文的方法
+    // function repTxt(content) {
+    //   // ||^[nbsp;]+
+    //   let con = content.replace(/([^\u0000-\u00FF]+)/g, function ($) { return '\\text{' + $ + '}'; })
+    //   return con
+    // }
   </script>
 </body>
 
