@@ -79,10 +79,11 @@
     // editRes('hahah', 0)
     setTimeout(() => {
       editRes('\\frac{1}{22}', 1)
-      renderMathInElement(document.body);
     }, 200)
     function editRes(latex, idx) {
       document.querySelectorAll('.kong')[idx].innerHTML = '$$'+ latex +'$$'
+      // 重新渲染修改的节点，如果不知道那变化，或者变化特别多，直接全部重新渲染   renderMathInElement(document.body)
+      renderMathInElement(document.querySelectorAll('.kong')[idx]);
     }
 
     function katexParse(content) {
