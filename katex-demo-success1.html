@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1">
-  <link href="https://cdn.bootcss.com/KaTeX/0.10.2/katex.min.css" rel="stylesheet">
-  <script src="https://cdn.bootcss.com/KaTeX/0.10.2/katex.min.js"></script>
-  <script src="https://cdn.bootcss.com/KaTeX/0.10.2/contrib/auto-render.min.js"></script>
+  <link href="https://cdn.bootcss.com/KaTeX/0.10.2/katex.min.css" crossorigin="anonymous" rel="stylesheet">
+  <script defer src="https://cdn.bootcss.com/KaTeX/0.10.2/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.bootcss.com/KaTeX/0.10.2/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -67,7 +67,7 @@
     // 全局标记渲染，最终方法
     console.log(katexParse(questions[0].content))
     document.getElementById('tigan').innerHTML = katexParse(questions[0].content)
-
+    // document.querySelectorAll('.kong')[1].innerHTML = '$$\\frac{22}{1}$$'
 
     /* 
       逻辑：点击填空题空，与Native交互，将填空答案和空的标志（哪一个空index）传入, Native换起公式键盘，将latex传入公式键盘输入框，
@@ -77,6 +77,10 @@
       
     }
     // editRes('hahah', 0)
+    setTimeout(() => {
+      editRes('\\frac{1}{22}', 1)
+      renderMathInElement(document.body);
+    }, 200)
     function editRes(latex, idx) {
       document.querySelectorAll('.kong')[idx].innerHTML = '$$'+ latex +'$$'
     }
