@@ -9,12 +9,12 @@
   <script src="https://cdn.bootcss.com/KaTeX/0.10.2/contrib/auto-render.min.js"></script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-          // displayMode: true
-        });
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        // displayMode: true
+      });
     });
-</script>
+  </script>
   </script>
 
 </head>
@@ -43,6 +43,11 @@
     white-space: normal !important;
     display: inline !important;
   }
+
+  .kong {
+    height: 50px;
+    border-bottom: 1px solid #cccccc;
+  }
 </style>
 
 <body>
@@ -50,15 +55,31 @@
   <div id="tigan">
   </div>
   <br />
-  答题：
-    第一空： <p ></p>
-  
+  第一空：
+  <p onclick="changeText(this.innerHTML, 0)" class="kong">111</p>
+  第二空：
+  <p onclick="changeText(this.innerHTML, 1)" class="kong"></p>
+  第三空：
+  <p onclick="changeText(this.innerHTML, 2)" class="kong"></p>
+
   <script src="./mock.js"></script>
   <script>
     // 全局标记渲染，最终方法
     console.log(katexParse(questions[0].content))
     document.getElementById('tigan').innerHTML = katexParse(questions[0].content)
 
+
+    /* 
+      逻辑：点击填空题空，与Native交互，将填空答案和空的标志（哪一个空index）传入, Native换起公式键盘，将latex传入公式键盘输入框，
+      输入结束，Native再降输入结果及index传入本页面，页面将结果放进对应的空 
+    */
+    function changeText(latex, idx) {
+      
+    }
+    // editRes('hahah', 0)
+    function editRes(latex, idx) {
+      document.querySelectorAll('.kong')[idx].innerHTML = '$$'+ latex +'$$'
+    }
 
     function katexParse(content) {
       var txt = content.replace(
@@ -101,7 +122,7 @@
     //   let c = ele.split('</ux-mth>')
     //   bbb.push(...c)
     // });
-    
+
     // let tg_str = ''
     // bbb.forEach((item, i) => {
     //   tg_str += item
